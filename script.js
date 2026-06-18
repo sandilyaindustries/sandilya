@@ -79,26 +79,46 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-
         const btn = contactForm.querySelector('button[type="submit"]');
         const originalText = btn.textContent;
         btn.textContent = 'Sending...';
         btn.disabled = true;
 
-        // Simulate form submission (replace with actual endpoint for production)
-        setTimeout(() => {
-            btn.textContent = 'Sent Successfully!';
-            btn.style.background = 'linear-gradient(135deg, #27ae60, #1a6b3c)';
-
+        const formData = new FormData(contactForm);
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                btn.textContent = 'Sent Successfully!';
+                btn.style.background = 'linear-gradient(135deg, #27ae60, #1a6b3c)';
+                contactForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(() => {
+            // Fallback: open mailto with form data
+            const name = formData.get('name') || '';
+            const email = formData.get('_replyto') || '';
+            const interest = formData.get('interest') || '';
+            const message = formData.get('message') || '';
+            const subject = encodeURIComponent('New Enquiry from Sandilya Website');
+            const body = encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\nInterest: ${interest}\n\nMessage:\n${message}`
+            );
+            window.location.href = `mailto:sandilyaindustriespvtltd@gmail.com?subject=${subject}&body=${body}`;
+            btn.textContent = 'Opening Email...';
+        })
+        .finally(() => {
             setTimeout(() => {
                 btn.textContent = originalText;
                 btn.style.background = '';
                 btn.disabled = false;
-                contactForm.reset();
             }, 3000);
-        }, 1000);
+        });
     });
 
     // Smooth counter animation for stats
