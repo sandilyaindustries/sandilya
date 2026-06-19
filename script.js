@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const body = encodeURIComponent(
                 `Name: ${name}\nEmail: ${email}\nInterest: ${interest}\n\nMessage:\n${message}`
             );
-            window.location.href = `mailto:sandilyaindustriespvtltd@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:sales@sandilyaindustries.com?subject=${subject}&body=${body}`;
             btn.textContent = 'Opening Email...';
         })
         .finally(() => {

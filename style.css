@@ -416,9 +416,19 @@ ul {
     border-color: var(--color-primary-light);
 }
 
-.product-icon {
-    font-size: 48px;
+.product-image {
     margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+}
+
+.product-image img {
+    max-height: 160px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 .product-card h3 {
