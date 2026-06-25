@@ -106,34 +106,38 @@
                 <p class="section-subtitle">Carefully curated from India's finest sources</p>
             </div>
             <div class="products-grid">
-                <div class="product-card" data-aos="fade-up">
+                <button type="button" class="product-card product-card--clickable" id="spicesCard" data-aos="fade-up" aria-expanded="false" aria-controls="spicesGallery">
                     <div class="product-image">
                         <img src="assets/spices.jpeg" alt="Sandilya Spices" loading="lazy">
                     </div>
                     <h3>Sandilya Spices</h3>
                     <p>Authentic Indian spices sourced directly from farms across India</p>
-                </div>
-                <div class="product-card" data-aos="fade-up">
+                    <span class="product-card-cta">View all spices</span>
+                </button>
+                <button type="button" class="product-card product-card--clickable" id="snacksCard" data-aos="fade-up" aria-expanded="false" aria-controls="snacksGallery">
                     <div class="product-image">
                         <img src="assets/snacks.jpeg" alt="Sandilya Snacks" loading="lazy">
                     </div>
                     <h3>Sandilya Snacks</h3>
                     <p>Delicious and healthy snacks made with traditional recipes</p>
-                </div>
-                <div class="product-card" data-aos="fade-up">
+                    <span class="product-card-cta">View all snacks</span>
+                </button>
+                <button type="button" class="product-card product-card--clickable" id="coffeeCard" data-aos="fade-up" aria-expanded="false" aria-controls="coffeeGallery">
                     <div class="product-image">
                         <img src="assets/coffee.jpeg" alt="Sandilya Premium Coffee" loading="lazy">
                     </div>
                     <h3>Sandilya Premium Coffee</h3>
                     <p>Rich and aromatic coffee beans from India's finest plantations</p>
-                </div>
-                <div class="product-card" data-aos="fade-up">
+                    <span class="product-card-cta">View all coffee</span>
+                </button>
+                <button type="button" class="product-card product-card--clickable" id="teaCard" data-aos="fade-up" aria-expanded="false" aria-controls="teaGallery">
                     <div class="product-image">
                         <img src="assets/tea.jpeg" alt="Sandilya Premium Tea" loading="lazy">
                     </div>
                     <h3>Sandilya Premium Tea</h3>
                     <p>Exquisite tea blends from the gardens of Assam and Darjeeling</p>
-                </div>
+                    <span class="product-card-cta">View all tea</span>
+                </button>
                 <div class="product-card" data-aos="fade-up">
                     <div class="product-image">
                         <img src="assets/protein.jpeg" alt="Sandilya Protein Food" loading="lazy">
@@ -162,6 +166,38 @@
                     <h3>Ayurvedic & Herbal Products</h3>
                     <p>Traditional Ayurvedic formulations for natural wellness</p>
                 </div>
+            </div>
+
+            <div class="product-gallery" id="spicesGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Spices Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="spicesGallery" aria-label="Close spices gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="spicesGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="snacksGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Snacks Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="snacksGallery" aria-label="Close snacks gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="snacksGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="coffeeGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Coffee Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="coffeeGallery" aria-label="Close coffee gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="coffeeGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="teaGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Tea Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="teaGallery" aria-label="Close tea gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="teaGrid"></div>
             </div>
         </div>
     </section>

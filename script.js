@@ -75,6 +75,118 @@ document.addEventListener('DOMContentLoaded', () => {
         benefit.style.transitionDelay = `${index * 0.08}s`;
     });
 
+    // Product galleries
+    const productGalleries = [
+        {
+            cardId: 'spicesCard',
+            galleryId: 'spicesGallery',
+            gridId: 'spicesGrid',
+            altPrefix: 'Sandilya Spice',
+            images: Array.from({ length: 22 }, (_, i) => `assets/spices/spice${i + 1}.jpeg`)
+        },
+        {
+            cardId: 'snacksCard',
+            galleryId: 'snacksGallery',
+            gridId: 'snacksGrid',
+            altPrefix: 'Sandilya Snack',
+            images: [
+                'WhatsApp Image 2026-06-23 at 7.51.49 PM.jpeg',
+                'WhatsApp Image 2026-06-23 at 7.51.50 PM (1).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.51.50 PM (2).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.51.50 PM.jpeg',
+                'WhatsApp Image 2026-06-23 at 7.51.51 PM (1).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.51.51 PM (2).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.51.51 PM.jpeg',
+                'WhatsApp Image 2026-06-23 at 7.51.52 PM (1).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.51.52 PM.jpeg'
+            ].map(file => `assets/snacks/${encodeURIComponent(file)}`)
+        },
+        {
+            cardId: 'coffeeCard',
+            galleryId: 'coffeeGallery',
+            gridId: 'coffeeGrid',
+            altPrefix: 'Sandilya Coffee',
+            images: [
+                'WhatsApp Image 2026-06-23 at 6.09.22 AM.jpeg',
+                'WhatsApp Image 2026-06-23 at 6.09.23 AM (1).jpeg',
+                'WhatsApp Image 2026-06-23 at 6.09.23 AM (2).jpeg',
+                'WhatsApp Image 2026-06-23 at 6.09.23 AM.jpeg',
+                'WhatsApp Image 2026-06-23 at 6.09.24 AM.jpeg'
+            ].map(file => `assets/coffee/${encodeURIComponent(file)}`)
+        },
+        {
+            cardId: 'teaCard',
+            galleryId: 'teaGallery',
+            gridId: 'teaGrid',
+            altPrefix: 'Sandilya Tea',
+            images: [
+                'WhatsApp Image 2026-06-23 at 7.21.08 PM (1).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.08 PM.jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.09 PM (1).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.09 PM.jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.20 PM (1).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.20 PM.jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.21 PM (1).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.21 PM (2).jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.21 PM.jpeg',
+                'WhatsApp Image 2026-06-23 at 7.21.22 PM.jpeg'
+            ].map(file => `assets/tea/${encodeURIComponent(file)}`)
+        }
+    ];
+
+    const galleryInstances = productGalleries.map(({ cardId, galleryId, gridId, altPrefix, images }) => {
+        const card = document.getElementById(cardId);
+        const gallery = document.getElementById(galleryId);
+        const grid = document.getElementById(gridId);
+
+        images.forEach((src, index) => {
+            const item = document.createElement('div');
+            item.className = 'product-gallery-item fade-in';
+            item.innerHTML = `<img src="${src}" alt="${altPrefix} ${index + 1}" loading="lazy">`;
+            grid.appendChild(item);
+            observer.observe(item);
+        });
+
+        return { card, gallery };
+    });
+
+    const closeAllGalleries = (exceptGallery = null) => {
+        galleryInstances.forEach(({ card, gallery }) => {
+            if (gallery !== exceptGallery) {
+                gallery.hidden = true;
+                card.setAttribute('aria-expanded', 'false');
+            }
+        });
+    };
+
+    galleryInstances.forEach(({ card, gallery }) => {
+        card.addEventListener('click', () => {
+            const isOpen = !gallery.hidden;
+            closeAllGalleries();
+
+            if (isOpen) {
+                gallery.hidden = true;
+                card.setAttribute('aria-expanded', 'false');
+            } else {
+                gallery.hidden = false;
+                card.setAttribute('aria-expanded', 'true');
+                gallery.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    });
+
+    document.querySelectorAll('[data-gallery-close]').forEach(button => {
+        button.addEventListener('click', () => {
+            closeAllGalleries();
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeAllGalleries();
+        }
+    });
+
     // Contact form handling
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
