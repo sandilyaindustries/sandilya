@@ -62,12 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     document.querySelectorAll('.product-card, .partner-type, .benefit, .contact-item, .stat').forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
+        if (!el.classList.contains('product-card--clickable')) {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        } else {
+            el.classList.add('visible');
+        }
     });
 
-    // Staggered animation for product cards
-    document.querySelectorAll('.product-card').forEach((card, index) => {
+    // Staggered animation for product cards (non-clickable only)
+    document.querySelectorAll('.product-card:not(.product-card--clickable)').forEach((card, index) => {
         card.style.transitionDelay = `${index * 0.1}s`;
     });
 
@@ -75,115 +79,88 @@ document.addEventListener('DOMContentLoaded', () => {
         benefit.style.transitionDelay = `${index * 0.08}s`;
     });
 
-    // Product galleries
-    const productGalleries = [
-        {
-            cardId: 'spicesCard',
-            galleryId: 'spicesGallery',
-            gridId: 'spicesGrid',
-            altPrefix: 'Sandilya Spice',
-            images: Array.from({ length: 22 }, (_, i) => `assets/spices/spice${i + 1}.jpeg`)
-        },
-        {
-            cardId: 'snacksCard',
-            galleryId: 'snacksGallery',
-            gridId: 'snacksGrid',
-            altPrefix: 'Sandilya Snack',
-            images: [
-                'WhatsApp Image 2026-06-23 at 7.51.49 PM.jpeg',
-                'WhatsApp Image 2026-06-23 at 7.51.50 PM (1).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.51.50 PM (2).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.51.50 PM.jpeg',
-                'WhatsApp Image 2026-06-23 at 7.51.51 PM (1).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.51.51 PM (2).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.51.51 PM.jpeg',
-                'WhatsApp Image 2026-06-23 at 7.51.52 PM (1).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.51.52 PM.jpeg'
-            ].map(file => `assets/snacks/${encodeURIComponent(file)}`)
-        },
-        {
-            cardId: 'coffeeCard',
-            galleryId: 'coffeeGallery',
-            gridId: 'coffeeGrid',
-            altPrefix: 'Sandilya Coffee',
-            images: [
-                'WhatsApp Image 2026-06-23 at 6.09.22 AM.jpeg',
-                'WhatsApp Image 2026-06-23 at 6.09.23 AM (1).jpeg',
-                'WhatsApp Image 2026-06-23 at 6.09.23 AM (2).jpeg',
-                'WhatsApp Image 2026-06-23 at 6.09.23 AM.jpeg',
-                'WhatsApp Image 2026-06-23 at 6.09.24 AM.jpeg'
-            ].map(file => `assets/coffee/${encodeURIComponent(file)}`)
-        },
-        {
-            cardId: 'teaCard',
-            galleryId: 'teaGallery',
-            gridId: 'teaGrid',
-            altPrefix: 'Sandilya Tea',
-            images: [
-                'WhatsApp Image 2026-06-23 at 7.21.08 PM (1).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.08 PM.jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.09 PM (1).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.09 PM.jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.20 PM (1).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.20 PM.jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.21 PM (1).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.21 PM (2).jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.21 PM.jpeg',
-                'WhatsApp Image 2026-06-23 at 7.21.22 PM.jpeg'
-            ].map(file => `assets/tea/${encodeURIComponent(file)}`)
-        }
-    ];
+    // Product galleries (loaded from assets/products.json)
+    const productGallery = document.getElementById('productGallery');
+    const productGalleryTitle = document.getElementById('productGalleryTitle');
+    const productGalleryGrid = document.getElementById('productGalleryGrid');
+    const productGalleryClose = document.getElementById('productGalleryClose');
+    const productCards = document.querySelectorAll('.product-card--clickable[data-category]');
+    const productsManifest = window.PRODUCTS_MANIFEST || {};
+    const manifestReady = Object.keys(productsManifest).length > 0;
+    let activeCategory = null;
 
-    const galleryInstances = productGalleries.map(({ cardId, galleryId, gridId, altPrefix, images }) => {
-        const card = document.getElementById(cardId);
-        const gallery = document.getElementById(galleryId);
-        const grid = document.getElementById(gridId);
+    if (!manifestReady) {
+        console.error('Product manifest not loaded. Run: python3 scripts/generate-products-manifest.py');
+        productCards.forEach(card => card.classList.add('product-card--disabled'));
+    }
 
-        images.forEach((src, index) => {
+    const buildImagePath = (folder, file) => `assets/${folder}/${encodeURIComponent(file)}`;
+
+    const renderGallery = (category) => {
+        const config = productsManifest[category];
+        if (!config || !config.files.length) return false;
+
+        productGalleryTitle.textContent = config.title;
+        productGalleryGrid.innerHTML = '';
+
+        config.files.forEach((file, index) => {
             const item = document.createElement('div');
-            item.className = 'product-gallery-item fade-in';
-            item.innerHTML = `<img src="${src}" alt="${altPrefix} ${index + 1}" loading="lazy">`;
-            grid.appendChild(item);
-            observer.observe(item);
+            item.className = 'product-gallery-item';
+            const img = document.createElement('img');
+            img.src = buildImagePath(config.folder, file);
+            img.alt = `${config.title} ${index + 1}`;
+            img.loading = 'lazy';
+            item.appendChild(img);
+            productGalleryGrid.appendChild(item);
         });
 
-        return { card, gallery };
-    });
-
-    const closeAllGalleries = (exceptGallery = null) => {
-        galleryInstances.forEach(({ card, gallery }) => {
-            if (gallery !== exceptGallery) {
-                gallery.hidden = true;
-                card.setAttribute('aria-expanded', 'false');
-            }
-        });
+        return true;
     };
 
-    galleryInstances.forEach(({ card, gallery }) => {
-        card.addEventListener('click', () => {
-            const isOpen = !gallery.hidden;
-            closeAllGalleries();
+    const closeGallery = () => {
+        productGallery.hidden = true;
+        activeCategory = null;
+        productCards.forEach(card => card.setAttribute('aria-expanded', 'false'));
+    };
 
-            if (isOpen) {
-                gallery.hidden = true;
-                card.setAttribute('aria-expanded', 'false');
-            } else {
-                gallery.hidden = false;
-                card.setAttribute('aria-expanded', 'true');
-                gallery.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
+    const openGallery = (category) => {
+        if (!manifestReady) return;
+
+        const rendered = renderGallery(category);
+        if (!rendered) return;
+
+        productGallery.hidden = false;
+        activeCategory = category;
+        productCards.forEach(card => {
+            card.setAttribute('aria-expanded', card.dataset.category === category ? 'true' : 'false');
+        });
+        productGallery.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+
+    const handleCardActivate = (card) => {
+        if (!manifestReady) return;
+
+        const category = card.dataset.category;
+
+        if (activeCategory === category && !productGallery.hidden) {
+            closeGallery();
+        } else {
+            openGallery(category);
+        }
+    };
+
+    productCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleCardActivate(card);
         });
     });
 
-    document.querySelectorAll('[data-gallery-close]').forEach(button => {
-        button.addEventListener('click', () => {
-            closeAllGalleries();
-        });
-    });
+    productGalleryClose.addEventListener('click', closeGallery);
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeAllGalleries();
+        if (e.key === 'Escape' && !productGallery.hidden) {
+            closeGallery();
         }
     });
 

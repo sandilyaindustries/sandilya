@@ -106,7 +106,7 @@
                 <p class="section-subtitle">Carefully curated from India's finest sources</p>
             </div>
             <div class="products-grid">
-                <button type="button" class="product-card product-card--clickable" id="spicesCard" data-aos="fade-up" aria-expanded="false" aria-controls="spicesGallery">
+                <button type="button" class="product-card product-card--clickable" data-category="spices" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
                     <div class="product-image">
                         <img src="assets/spices.jpeg" alt="Sandilya Spices" loading="lazy">
                     </div>
@@ -114,7 +114,7 @@
                     <p>Authentic Indian spices sourced directly from farms across India</p>
                     <span class="product-card-cta">View all spices</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" id="snacksCard" data-aos="fade-up" aria-expanded="false" aria-controls="snacksGallery">
+                <button type="button" class="product-card product-card--clickable" data-category="snacks" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
                     <div class="product-image">
                         <img src="assets/snacks.jpeg" alt="Sandilya Snacks" loading="lazy">
                     </div>
@@ -122,7 +122,7 @@
                     <p>Delicious and healthy snacks made with traditional recipes</p>
                     <span class="product-card-cta">View all snacks</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" id="coffeeCard" data-aos="fade-up" aria-expanded="false" aria-controls="coffeeGallery">
+                <button type="button" class="product-card product-card--clickable" data-category="coffee" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
                     <div class="product-image">
                         <img src="assets/coffee.jpeg" alt="Sandilya Premium Coffee" loading="lazy">
                     </div>
@@ -130,7 +130,7 @@
                     <p>Rich and aromatic coffee beans from India's finest plantations</p>
                     <span class="product-card-cta">View all coffee</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" id="teaCard" data-aos="fade-up" aria-expanded="false" aria-controls="teaGallery">
+                <button type="button" class="product-card product-card--clickable" data-category="tea" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
                     <div class="product-image">
                         <img src="assets/tea.jpeg" alt="Sandilya Premium Tea" loading="lazy">
                     </div>
@@ -138,66 +138,46 @@
                     <p>Exquisite tea blends from the gardens of Assam and Darjeeling</p>
                     <span class="product-card-cta">View all tea</span>
                 </button>
-                <div class="product-card" data-aos="fade-up">
+                <button type="button" class="product-card product-card--clickable" data-category="protein" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
                     <div class="product-image">
                         <img src="assets/protein.jpeg" alt="Sandilya Protein Food" loading="lazy">
                     </div>
                     <h3>Sandilya Protein Food</h3>
                     <p>High-protein natural food for health-conscious consumers</p>
-                </div>
-                <div class="product-card" data-aos="fade-up">
+                    <span class="product-card-cta">View all protein food</span>
+                </button>
+                <button type="button" class="product-card product-card--clickable" data-category="atta" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
                     <div class="product-image">
                         <img src="assets/atta.jpeg" alt="Sandilya Protein Atta" loading="lazy">
                     </div>
                     <h3>Sandilya Protein Atta</h3>
                     <p>Nutrient-rich flour blended with protein for daily wellness</p>
-                </div>
-                <div class="product-card" data-aos="fade-up">
+                    <span class="product-card-cta">View all atta</span>
+                </button>
+                <button type="button" class="product-card product-card--clickable" data-category="gourmet" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
                     <div class="product-image">
                         <img src="assets/gourmet.jpeg" alt="Sandilya Gourmet Food" loading="lazy">
                     </div>
                     <h3>Sandilya Gourmet Food</h3>
                     <p>Premium gourmet food products for the discerning palate</p>
-                </div>
-                <div class="product-card" data-aos="fade-up">
+                    <span class="product-card-cta">View all gourmet food</span>
+                </button>
+                <button type="button" class="product-card product-card--clickable" data-category="ayurvedic" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
                     <div class="product-image">
                         <img src="assets/herbal.jpeg" alt="Sandilya Ayurvedic & Herbal Products" loading="lazy">
                     </div>
                     <h3>Ayurvedic & Herbal Products</h3>
                     <p>Traditional Ayurvedic formulations for natural wellness</p>
-                </div>
+                    <span class="product-card-cta">View all ayurvedic products</span>
+                </button>
             </div>
 
-            <div class="product-gallery" id="spicesGallery" hidden>
+            <div class="product-gallery" id="productGallery" hidden>
                 <div class="product-gallery-header">
-                    <h3>Our Spices Collection</h3>
-                    <button type="button" class="product-gallery-close" data-gallery-close="spicesGallery" aria-label="Close spices gallery">&times;</button>
+                    <h3 id="productGalleryTitle">Our Products</h3>
+                    <button type="button" class="product-gallery-close" id="productGalleryClose" aria-label="Close product gallery">&times;</button>
                 </div>
-                <div class="product-gallery-grid" id="spicesGrid"></div>
-            </div>
-
-            <div class="product-gallery" id="snacksGallery" hidden>
-                <div class="product-gallery-header">
-                    <h3>Our Snacks Collection</h3>
-                    <button type="button" class="product-gallery-close" data-gallery-close="snacksGallery" aria-label="Close snacks gallery">&times;</button>
-                </div>
-                <div class="product-gallery-grid" id="snacksGrid"></div>
-            </div>
-
-            <div class="product-gallery" id="coffeeGallery" hidden>
-                <div class="product-gallery-header">
-                    <h3>Our Coffee Collection</h3>
-                    <button type="button" class="product-gallery-close" data-gallery-close="coffeeGallery" aria-label="Close coffee gallery">&times;</button>
-                </div>
-                <div class="product-gallery-grid" id="coffeeGrid"></div>
-            </div>
-
-            <div class="product-gallery" id="teaGallery" hidden>
-                <div class="product-gallery-header">
-                    <h3>Our Tea Collection</h3>
-                    <button type="button" class="product-gallery-close" data-gallery-close="teaGallery" aria-label="Close tea gallery">&times;</button>
-                </div>
-                <div class="product-gallery-grid" id="teaGrid"></div>
+                <div class="product-gallery-grid" id="productGalleryGrid"></div>
             </div>
         </div>
     </section>
@@ -345,6 +325,7 @@
         </div>
     </footer>
 
+    <script src="assets/products-manifest.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

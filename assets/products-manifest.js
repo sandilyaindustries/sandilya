@@ -1,0 +1,146 @@
+window.PRODUCTS_MANIFEST = {
+  "spices": {
+    "folder": "spices",
+    "title": "Our Spices Collection",
+    "files": [
+      "WhatsApp Image 2026-06-26 at 5.42.59 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.42.59 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.42.59 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.42.59 PM (4).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.42.59 PM (5).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.42.59 PM (6).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.42.59 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (10).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (11).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (12).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (13).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (14).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (4).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (5).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (6).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (7).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (8).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM (9).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.00 PM.jpeg"
+    ]
+  },
+  "snacks": {
+    "folder": "snacks",
+    "title": "Our Snacks Collection",
+    "files": [
+      "WhatsApp Image 2026-06-26 at 5.43.44 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.44 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.45 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.45 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.45 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.45 PM (4).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.45 PM (5).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.43.45 PM.jpeg"
+    ]
+  },
+  "coffee": {
+    "folder": "coffee",
+    "title": "Our Coffee Collection",
+    "files": [
+      "WhatsApp Image 2026-06-26 at 5.46.55 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.46.55 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.46.56 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.46.56 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.46.56 PM.jpeg"
+    ]
+  },
+  "tea": {
+    "folder": "tea",
+    "title": "Our Tea Collection",
+    "files": [
+      "WhatsApp Image 2026-06-26 at 5.47.53 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.53 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.53 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.53 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.54 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.55 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.55 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.55 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.55 PM (4).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.47.55 PM.jpeg"
+    ]
+  },
+  "protein": {
+    "folder": "Protein_food",
+    "title": "Our Protein Food Collection",
+    "files": [
+      "WhatsApp Image 2026-06-26 at 5.48.54 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.48.54 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.48.54 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.48.55 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.48.55 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.48.55 PM.jpeg"
+    ]
+  },
+  "atta": {
+    "folder": "atta",
+    "title": "Our Protein Atta Collection",
+    "files": [
+      "WhatsApp Image 2026-06-26 at 5.50.44 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.50.44 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.50.44 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.50.44 PM (4).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.50.44 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.50.45 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.50.45 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.50.45 PM.jpeg"
+    ]
+  },
+  "gourmet": {
+    "folder": "gourmet",
+    "title": "Our Gourmet Food Collection",
+    "files": [
+      "WhatsApp Image 2026-06-26 at 5.51.47 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.47 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.47 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.47 PM (4).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.47 PM (5).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.47 PM (6).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.47 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.48 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.48 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.51.48 PM.jpeg"
+    ]
+  },
+  "ayurvedic": {
+    "folder": "ayurvedic",
+    "title": "Our Ayurvedic & Herbal Collection",
+    "files": [
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (10).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (11).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (4).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (5).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (6).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (7).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (8).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM (9).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.45 PM.jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (1).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (10).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (11).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (12).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (13).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (14).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (2).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (3).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (4).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (5).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (6).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (7).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (8).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM (9).jpeg",
+      "WhatsApp Image 2026-06-26 at 5.52.46 PM.jpeg"
+    ]
+  }
+};
