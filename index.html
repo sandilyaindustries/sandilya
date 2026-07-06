@@ -106,7 +106,7 @@
                 <p class="section-subtitle">Carefully curated from India's finest sources</p>
             </div>
             <div class="products-grid">
-                <button type="button" class="product-card product-card--clickable" data-category="spices" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
+                <button type="button" class="product-card product-card--clickable" id="spicesCard" data-aos="fade-up" aria-expanded="false" aria-controls="spicesGallery">
                     <div class="product-image">
                         <img src="assets/spices.jpeg" alt="Sandilya Spices" loading="lazy">
                     </div>
@@ -114,7 +114,7 @@
                     <p>Authentic Indian spices sourced directly from farms across India</p>
                     <span class="product-card-cta">View all spices</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" data-category="snacks" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
+                <button type="button" class="product-card product-card--clickable" id="snacksCard" data-aos="fade-up" aria-expanded="false" aria-controls="snacksGallery">
                     <div class="product-image">
                         <img src="assets/snacks.jpeg" alt="Sandilya Snacks" loading="lazy">
                     </div>
@@ -122,7 +122,7 @@
                     <p>Delicious and healthy snacks made with traditional recipes</p>
                     <span class="product-card-cta">View all snacks</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" data-category="coffee" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
+                <button type="button" class="product-card product-card--clickable" id="coffeeCard" data-aos="fade-up" aria-expanded="false" aria-controls="coffeeGallery">
                     <div class="product-image">
                         <img src="assets/coffee.jpeg" alt="Sandilya Premium Coffee" loading="lazy">
                     </div>
@@ -130,7 +130,7 @@
                     <p>Rich and aromatic coffee beans from India's finest plantations</p>
                     <span class="product-card-cta">View all coffee</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" data-category="tea" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
+                <button type="button" class="product-card product-card--clickable" id="teaCard" data-aos="fade-up" aria-expanded="false" aria-controls="teaGallery">
                     <div class="product-image">
                         <img src="assets/tea.jpeg" alt="Sandilya Premium Tea" loading="lazy">
                     </div>
@@ -138,7 +138,7 @@
                     <p>Exquisite tea blends from the gardens of Assam and Darjeeling</p>
                     <span class="product-card-cta">View all tea</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" data-category="protein" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
+                <button type="button" class="product-card product-card--clickable" id="proteinCard" data-aos="fade-up" aria-expanded="false" aria-controls="proteinGallery">
                     <div class="product-image">
                         <img src="assets/protein.jpeg" alt="Sandilya Protein Food" loading="lazy">
                     </div>
@@ -146,15 +146,17 @@
                     <p>High-protein natural food for health-conscious consumers</p>
                     <span class="product-card-cta">View all protein food</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" data-category="atta" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
+
+                <button type="button" class="product-card product-card--clickable" id="attaCard" data-aos="fade-up" aria-expanded="false" aria-controls="attaGallery">
                     <div class="product-image">
                         <img src="assets/atta.jpeg" alt="Sandilya Protein Atta" loading="lazy">
                     </div>
                     <h3>Sandilya Protein Atta</h3>
                     <p>Nutrient-rich flour blended with protein for daily wellness</p>
-                    <span class="product-card-cta">View all atta</span>
+                    <span class="product-card-cta">View all protein atta</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" data-category="gourmet" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
+
+                <button type="button" class="product-card product-card--clickable" id="gourmetCard" data-aos="fade-up" aria-expanded="false" aria-controls="gourmetGallery">
                     <div class="product-image">
                         <img src="assets/gourmet.jpeg" alt="Sandilya Gourmet Food" loading="lazy">
                     </div>
@@ -162,23 +164,81 @@
                     <p>Premium gourmet food products for the discerning palate</p>
                     <span class="product-card-cta">View all gourmet food</span>
                 </button>
-                <button type="button" class="product-card product-card--clickable" data-category="ayurvedic" data-aos="fade-up" aria-expanded="false" aria-controls="productGallery">
+
+                <button type="button" class="product-card product-card--clickable" id="herbalCard" data-aos="fade-up" aria-expanded="false" aria-controls="herbalGallery">
                     <div class="product-image">
                         <img src="assets/herbal.jpeg" alt="Sandilya Ayurvedic & Herbal Products" loading="lazy">
                     </div>
                     <h3>Ayurvedic & Herbal Products</h3>
                     <p>Traditional Ayurvedic formulations for natural wellness</p>
-                    <span class="product-card-cta">View all ayurvedic products</span>
+                    <span class="product-card-cta">View all herbal products</span>
                 </button>
             </div>
 
-            <div class="product-gallery" id="productGallery" hidden>
+            <div class="product-gallery" id="spicesGallery" hidden>
                 <div class="product-gallery-header">
-                    <h3 id="productGalleryTitle">Our Products</h3>
-                    <button type="button" class="product-gallery-close" id="productGalleryClose" aria-label="Close product gallery">&times;</button>
+                    <h3>Our Spices Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="spicesGallery" aria-label="Close spices gallery">&times;</button>
                 </div>
-                <div class="product-gallery-grid" id="productGalleryGrid"></div>
+                <div class="product-gallery-grid" id="spicesGrid"></div>
             </div>
+
+            <div class="product-gallery" id="snacksGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Snacks Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="snacksGallery" aria-label="Close snacks gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="snacksGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="coffeeGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Coffee Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="coffeeGallery" aria-label="Close coffee gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="coffeeGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="teaGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Tea Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="teaGallery" aria-label="Close tea gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="teaGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="proteinGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Protein Food Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="proteinGallery" aria-label="Close protein food gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="proteinGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="attaGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Protein Atta Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="attaGallery" aria-label="Close protein atta gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="attaGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="gourmetGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Gourmet Food Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="gourmetGallery" aria-label="Close gourmet food gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="gourmetGrid"></div>
+            </div>
+
+            <div class="product-gallery" id="herbalGallery" hidden>
+                <div class="product-gallery-header">
+                    <h3>Our Ayurvedic & Herbal Products Collection</h3>
+                    <button type="button" class="product-gallery-close" data-gallery-close="herbalGallery" aria-label="Close herbal products gallery">&times;</button>
+                </div>
+                <div class="product-gallery-grid" id="herbalGrid"></div>
+            </div>
+
         </div>
     </section>
 
@@ -253,7 +313,7 @@
                     <div class="contact-item">
                         <span class="contact-icon">📞</span>
                         <div>
-                            <h4>Phone</h4>
+                            <h4>Phone / Whatsapp</h4>
                             <a href="tel:+917890018492">+91 78900 18492</a>
                         </div>
                     </div>
@@ -325,7 +385,23 @@
         </div>
     </footer>
 
-    <script src="assets/products-manifest.js"></script>
+    <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+        <button type="button" class="image-lightbox-close" id="imageLightboxClose" aria-label="Close image preview">&times;</button>
+        <button type="button" class="image-lightbox-nav image-lightbox-prev" id="imageLightboxPrev" aria-label="Previous collection image">&#10094;</button>
+        <div class="image-lightbox-content">
+            <img src="" alt="" id="imageLightboxImg">
+            <p class="image-lightbox-counter" id="imageLightboxCounter"></p>
+        </div>
+        <button type="button" class="image-lightbox-nav image-lightbox-next" id="imageLightboxNext" aria-label="Next collection image">&#10095;</button>
+    </div>
+
+
+    <a href="https://api.whatsapp.com/send?phone=917890018492&text=Hi." class="floating-whatsapp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M16.04 3C8.86 3 3.03 8.78 3.03 15.9c0 2.28.6 4.5 1.75 6.46L3 29l6.84-1.78a13.1 13.1 0 0 0 6.2 1.57c7.18 0 13.01-5.79 13.01-12.9C29.05 8.78 23.22 3 16.04 3Zm0 23.6c-1.93 0-3.82-.52-5.47-1.5l-.39-.23-4.06 1.06 1.08-3.93-.26-.4a10.55 10.55 0 0 1-1.7-5.7c0-5.9 4.85-10.7 10.8-10.7s10.8 4.8 10.8 10.7-4.85 10.7-10.8 10.7Zm5.92-8.01c-.32-.16-1.9-.93-2.19-1.04-.29-.11-.5-.16-.72.16-.21.32-.82 1.04-1.01 1.25-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.59-1.59-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.72-.98-2.36-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.64s1.14 3.07 1.3 3.28c.16.21 2.24 3.39 5.43 4.75.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.77 2.17-1.51.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z"/>
+        </svg>
+    </a>
+
     <script src="script.js"></script>
 </body>
 </html>
