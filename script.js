@@ -389,20 +389,29 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(contactForm.action, {
                 method: 'POST',
                 body: formData,
-                headers: { 'Accept': 'application/json' }
+                headers: {
+                    'Accept': 'application/json'
+                }
             })
-            .then(response => {
+            .then(async response => {
                 if (response.ok) {
                     btn.textContent = 'Sent Successfully!';
                     btn.style.background = 'linear-gradient(135deg, #27ae60, #1a6b3c)';
                     contactForm.reset();
                 } else {
-                    throw new Error('Form submission failed');
+                    const data = await response.json().catch(() => null);
+                    let errorMessage = 'Sorry, there was a problem sending your enquiry. Please try again.';
+
+                    if (data && data.errors && data.errors.length) {
+                        errorMessage = data.errors.map(error => error.message).join('\n');
+                    }
+
+                    throw new Error(errorMessage);
                 }
             })
-            .catch(() => {
+            .catch((error) => {
                 btn.textContent = 'Failed to Send';
-                alert('Sorry, there was a problem sending your enquiry. Please try again.');
+                alert(error.message || 'Sorry, there was a problem sending your enquiry. Please try again.');
             })
             .finally(() => {
                 setTimeout(() => {
