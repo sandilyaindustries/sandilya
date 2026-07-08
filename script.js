@@ -387,29 +387,35 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
             const formData = new FormData(contactForm);
             fetch(contactForm.action, {
-                method: 'POST',
+                method: contactForm.method || 'POST',
                 body: formData,
                 headers: {
                     'Accept': 'application/json'
                 }
             })
             .then(async response => {
+                const data = await response.json().catch(() => null);
                 if (response.ok) {
                     btn.textContent = 'Sent Successfully!';
                     btn.style.background = 'linear-gradient(135deg, #27ae60, #1a6b3c)';
                     contactForm.reset();
-                } else {
-                    const data = await response.json().catch(() => null);
-                    let errorMessage = 'Sorry, there was a problem sending your enquiry. Please try again.';
-
-                    if (data && data.errors && data.errors.length) {
-                        errorMessage = data.errors.map(error => error.message).join('\n');
-                    }
-
-                    throw new Error(errorMessage);
+                    alert('Thank you! Your enquiry has been sent successfully.');
+                    return;
                 }
+                console.log('Formspree Error Status:', response.status);
+                console.log('Formspree Error Data:', data);
+                let errorMessage = 'Formspree submission failed.';
+                if (data && data.errors && data.errors.length) {
+                    errorMessage = data.errors.map(error => error.message).join('\n');
+                } else if (data && data.error) {
+                    errorMessage = data.error;
+                } else {
+                    errorMessage = `Formspree error status: ${response.status}`;
+                }
+                throw new Error(errorMessage);
             })
             .catch((error) => {
+                console.error('Form submission error:', error);
                 btn.textContent = 'Failed to Send';
                 alert(error.message || 'Sorry, there was a problem sending your enquiry. Please try again.');
             })
