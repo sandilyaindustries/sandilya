@@ -378,50 +378,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Contact form handling
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const btn = contactForm.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-
-        const formData = new FormData(contactForm);
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        })
-        .then(response => {
-            if (response.ok) {
-                btn.textContent = 'Sent Successfully!';
-                btn.style.background = 'linear-gradient(135deg, #27ae60, #1a6b3c)';
-                contactForm.reset();
-            } else {
-                throw new Error('Form submission failed');
-            }
-        })
-        .catch(() => {
-            // Fallback: open mailto with form data
-            const name = formData.get('name') || '';
-            const email = formData.get('_replyto') || '';
-            const interest = formData.get('interest') || '';
-            const message = formData.get('message') || '';
-            const subject = encodeURIComponent('New Enquiry from Sandilya Website');
-            const body = encodeURIComponent(
-                `Name: ${name}\nEmail: ${email}\nInterest: ${interest}\n\nMessage:\n${message}`
-            );
-            window.location.href = `mailto:sales@sandilyaindustries.com?subject=${subject}&body=${body}`;
-            btn.textContent = 'Opening Email...';
-        })
-        .finally(() => {
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 3000);
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            const formData = new FormData(contactForm);
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    btn.textContent = 'Sent Successfully!';
+                    btn.style.background = 'linear-gradient(135deg, #27ae60, #1a6b3c)';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(() => {
+                btn.textContent = 'Failed to Send';
+                alert('Sorry, there was a problem sending your enquiry. Please try again.');
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            });
         });
-    });
+    }
 
     // Smooth counter animation for stats
     const animateCounter = (el, target) => {
